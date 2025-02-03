@@ -9,9 +9,9 @@ LABEL org.opencontainers.image.authors="Snowdream Tech" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.source="https://github.com/snowdreamtech/deno" \
     org.opencontainers.image.vendor="Snowdream Tech" \
-    org.opencontainers.image.version="3.21.0" \
+    org.opencontainers.image.version="2.0.6" \
     org.opencontainers.image.url="https://github.com/snowdreamtech/deno"
-    
+
 # Switch to the user
 USER root
 
@@ -19,10 +19,12 @@ USER root
 WORKDIR /root
 
 # keep the docker container running
-ENV KEEPALIVE=1 \
+ENV KEEPALIVE=0 \
     # The cap_net_bind_service capability in Linux allows a process to bind a socket to Internet domain privileged ports, 
     # which are port numbers less than 1024. 
     CAP_NET_BIND_SERVICE=0 
+
+ENV DENO_VERSION=2.0.6-r0
 
 ARG GID=1000 \
     UID=1000  \
@@ -43,7 +45,8 @@ RUN if [ "${USER}" != "root" ] && [ "${CAP_NET_BIND_SERVICE}" -eq 1 ]; then \
     fi
 
 RUN apk add --no-cache \
-    vim
+    unzip \
+    deno=${DENO_VERSION}
 
 # Switch to the user
 USER ${USER}

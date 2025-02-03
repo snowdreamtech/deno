@@ -9,9 +9,9 @@ LABEL org.opencontainers.image.authors="Snowdream Tech" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.source="https://github.com/snowdreamtech/deno" \
     org.opencontainers.image.vendor="Snowdream Tech" \
-    org.opencontainers.image.version="12.8" \
+    org.opencontainers.image.version="2.1.9" \
     org.opencontainers.image.url="https://github.com/snowdreamtech/deno"
-    
+
 # Switch to the user
 USER root
 
@@ -19,10 +19,12 @@ USER root
 WORKDIR /root
 
 # keep the docker container running
-ENV KEEPALIVE=1 \
+ENV KEEPALIVE=0 \
     # The cap_net_bind_service capability in Linux allows a process to bind a socket to Internet domain privileged ports, 
     # which are port numbers less than 1024. 
     CAP_NET_BIND_SERVICE=0
+
+ENV DENO_VERSION=2.1.9
 
 ARG GID=1000 \
     UID=1000  \
@@ -58,7 +60,8 @@ RUN set -eux \
 RUN set -eux \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy update  \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy install --no-install-recommends \ 
-    vim \
+    unzip \
+    && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- --yes \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy --purge autoremove \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy clean \
     && rm -rf /var/lib/apt/lists/* \
