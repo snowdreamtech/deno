@@ -46,8 +46,11 @@ RUN if [ "${USER}" != "root" ] && [ "${CAP_NET_BIND_SERVICE}" -eq 1 ]; then \
 
 RUN apk add --no-cache \
     unzip \
-    deno=${DENO_VERSION}
-
+    deno=${DENO_VERSION} \
+    npm \
+    pnpm@community \
+    yarn
+    
 # Switch to the user
 USER ${USER}
 
