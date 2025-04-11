@@ -1,6 +1,6 @@
 # Deno
 
-[![Deno](http://dockeri.co/image/snowdreamtech/deno)](https://hub.docker.com/r/snowdreamtech/deno)
+[![dockeri.co](https://dockerico.blankenship.io/image/snowdreamtech/deno)](https://hub.docker.com/r/snowdreamtech/deno)
 
 Docker Image packaging for Deno. (amd64, arm64v8)
 
