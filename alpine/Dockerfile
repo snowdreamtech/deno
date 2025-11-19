@@ -52,10 +52,7 @@ ENV DENO_VERSION=2.3.1-r2
 
 RUN apk add --no-cache \
     unzip \
-    deno=${DENO_VERSION} \
-    npm \
-    pnpm@community \
-    yarn
+    deno=${DENO_VERSION}
 
 # Create a user with PUID and PGID
 RUN if [ "${USER}" != "root" ]; then \
