@@ -59,10 +59,7 @@ RUN if [ "${USER}" != "root" ] && [ ! -d "/home/${USER}" ] && [ "${PUID}" -ne 0 
 
 RUN apk add --no-cache \
     unzip \
-    deno=${DENO_VERSION} \
-    npm \
-    pnpm@community \
-    yarn
+    deno=${DENO_VERSION}
 
 # Enable CAP_NET_BIND_SERVICE
 # RUN if [ "${USER}" != "root" ] && [ "${CAP_NET_BIND_SERVICE}" -eq 1 ]; then \

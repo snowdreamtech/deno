@@ -63,11 +63,7 @@ RUN set -eux \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy update  \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy install --no-install-recommends \ 
     unzip \
-    npm \
-    yarnpkg \
     && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- --yes \
-    && ln -s /usr/bin/yarnpkg /usr/bin/yarn \
-    && npm install -g pnpm \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy --purge autoremove \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy clean \
     && rm -rf /var/lib/apt/lists/* \
