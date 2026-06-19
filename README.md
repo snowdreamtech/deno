@@ -1,31 +1,30 @@
-# Base
+# Deno
 
-![Docker Image Version](https://img.shields.io/docker/v/snowdreamtech/base)
-![Docker Image Size](https://img.shields.io/docker/image-size/snowdreamtech/base/latest)
-![Docker Pulls](https://img.shields.io/docker/pulls/snowdreamtech/base)
-![Docker Stars](https://img.shields.io/docker/stars/snowdreamtech/base)
+![Docker Image Version](https://img.shields.io/docker/v/snowdreamtech/deno)
+![Docker Image Size](https://img.shields.io/docker/image-size/snowdreamtech/deno/latest)
+![Docker Pulls](https://img.shields.io/docker/pulls/snowdreamtech/deno)
+![Docker Stars](https://img.shields.io/docker/stars/snowdreamtech/deno)
 
-Docker base template providing standardized container foundations with flexible entrypoint systems, multi-architecture support, and consistent configuration patterns across Alpine, Debian, and Rocky Linux distributions.
+Docker Image packaging for Deno, providing a standardized container base with a flexible entrypoint system, multi-architecture support, and consistent configuration patterns across Alpine, Debian, and Rocky Linux distributions.
 
 ## Overview
 
-The Docker base template serves as a foundational starting point for building containerized applications. It provides:
+The Docker Deno image serves as a foundational starting point for building Deno-based containerized applications. It provides:
 
 - **Standardized Dockerfiles** with OCI annotations and best practices
-- **Flexible entrypoint system** supporting custom initialization scripts
-- **Consistent environment variable configuration** across all variants
-- **Multi-architecture support** for diverse hardware platforms
-- **User/group management** with PUID/PGID support for permission handling
-- **Three distribution variants**: Alpine (lightweight), Debian (default/widely-compatible), Rocky (enterprise)
+- **Flexible Entrypoint System** supporting custom initialization scripts
+- **Consistent Environment Configuration** across all variants
+- **Multi-Architecture Support** for diverse hardware platforms
+- **Three Distribution Variants**: Alpine (lightweight), Debian (default/broad compatibility), Rocky (enterprise)
 
 ## Quick Start
 
 ```bash
 # Pull and run the default Debian variant
-docker pull snowdreamtech/base:debian
-docker run -d --name=base -e TZ=Asia/Shanghai snowdreamtech/base:debian
+docker pull snowdreamtech/deno:debian
+docker run -d --name=deno -e TZ=Asia/Shanghai snowdreamtech/deno:debian
 
-# Or use docker-compose
+# Or using docker-compose
 docker-compose up -d
 ```
 
@@ -33,30 +32,30 @@ docker-compose up -d
 
 ### Debian (Default)
 
-The recommended variant for most use cases, providing wide compatibility and extensive package availability.
+The recommended variant for most use cases, providing broad compatibility and rich package availability.
 
 ```bash
 docker run -d \
-  --name=base \
+  --name=deno \
   -e TZ=Asia/Shanghai \
   --restart unless-stopped \
-  snowdreamtech/base:debian
+  snowdreamtech/deno:debian
 ```
 
-**Supported Architectures**: i386, amd64, arm32v5, arm32v7, arm64, mips64le, ppc64le, s390x
+**Supported Architectures**: i386, amd64, arm32v5, arm32v7, arm64, riscv64, ppc64le, s390x
 
 **Base Image**: `snowdreamtech/debian:13.5.0`
 
 ### Alpine
 
-Lightweight variant optimized for minimal image size and fast startup times.
+A lightweight variant optimized for minimal image size and fast startup times.
 
 ```bash
 docker run -d \
-  --name=base \
+  --name=deno \
   -e TZ=Asia/Shanghai \
   --restart unless-stopped \
-  snowdreamtech/base:alpine
+  snowdreamtech/deno:alpine
 ```
 
 **Supported Architectures**: i386, amd64, arm32v6, arm32v7, arm64, ppc64le, riscv64, s390x
@@ -65,17 +64,17 @@ docker run -d \
 
 ### Rocky
 
-Enterprise-focused variant based on Rocky Linux, ideal for production environments requiring RHEL compatibility.
+An enterprise-grade variant based on Rocky Linux, suitable for production environments requiring RHEL compatibility.
 
 ```bash
 docker run -d \
-  --name=base \
+  --name=deno \
   -e TZ=Asia/Shanghai \
   --restart unless-stopped \
-  snowdreamtech/base:rocky
+  snowdreamtech/deno:rocky
 ```
 
-**Supported Architectures**: i386, amd64, arm32v5, arm32v7, arm64, mips64le, ppc64le, s390x
+**Supported Architectures**: amd64, arm64, ppc64le, s390x
 
 **Base Image**: `snowdreamtech/rocky:10.2.0`
 
@@ -85,41 +84,41 @@ docker run -d \
 
 ```bash
 # Build Debian variant
-docker build -t snowdreamtech/base:debian ./docker/debian/
+docker build -t snowdreamtech/deno:debian ./docker/debian/
 
 # Build Alpine variant
-docker build -t snowdreamtech/base:alpine ./docker/alpine/
+docker build -t snowdreamtech/deno:alpine ./docker/alpine/
 
 # Build Rocky variant
-docker build -t snowdreamtech/base:rocky ./docker/rocky/
+docker build -t snowdreamtech/deno:rocky ./docker/rocky/
 ```
 
 ### Multi-Architecture Build
 
-Build images for multiple architectures using `docker buildx`:
+Use `docker buildx` to build images for multiple architectures:
 
 ```bash
-# Create and use a buildx builder
+# Create and use buildx builder
 docker buildx create --use --name build --node build --driver-opt network=host
 
 # Build Debian for multiple architectures
 docker buildx build \
-  --platform=linux/386,linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64,linux/mips64le,linux/ppc64le,linux/s390x \
-  -t snowdreamtech/base:debian \
+  --platform=linux/386,linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64,linux/riscv64,linux/ppc64le,linux/s390x \
+  -t snowdreamtech/deno:debian \
   ./docker/debian/ \
   --push
 
 # Build Alpine for multiple architectures
 docker buildx build \
   --platform=linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/riscv64,linux/s390x \
-  -t snowdreamtech/base:alpine \
+  -t snowdreamtech/deno:alpine \
   ./docker/alpine/ \
   --push
 
 # Build Rocky for multiple architectures
 docker buildx build \
-  --platform=linux/386,linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64,linux/mips64le,linux/ppc64le,linux/s390x \
-  -t snowdreamtech/base:rocky \
+  --platform=linux/amd64,linux/arm64,linux/ppc64le,linux/s390x \
+  -t snowdreamtech/deno:rocky \
   ./docker/rocky/ \
   --push
 ```
@@ -130,18 +129,19 @@ All variants support the following environment variables for runtime configurati
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `KEEPALIVE` | `0` | Keep container running (1=enabled, 0=disabled) |
+| `KEEPALIVE` | `0` | Keep container running (1=enable, 0=disable) |
 | `CAP_NET_BIND_SERVICE` | `0` | Enable binding to privileged ports (<1024) |
-| `LANG` | `C.UTF-8` | Locale setting for UTF-8 character support |
+| `LANG` | `C.UTF-8` | Locale for UTF-8 character support |
 | `UMASK` | `022` | Default file creation mask |
 | `DEBUG` | `false` | Enable debug output in entrypoint scripts |
-| `PGID` | `0` | Primary group ID for custom user creation |
-| `PUID` | `0` | User ID for custom user creation |
-| `USER` | `root` | Username for custom user creation |
+| `PGID` | `0` | Custom primary group ID for user creation |
+| `PUID` | `0` | Custom user ID for user creation |
+| `USER` | `root` | Custom username for user creation |
 | `WORKDIR` | `/root` | Working directory path |
 | `TZ` | - | Timezone (e.g., `Asia/Shanghai`, `America/New_York`) |
+| `DENO_VERSION` | - | Deno Version |
 
-**Debian-specific**:
+**Debian Specific**:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -149,29 +149,18 @@ All variants support the following environment variables for runtime configurati
 
 ### Custom User Creation
 
-Create a non-root user with specific UID/GID at build time:
-
-```bash
-docker build \
-  --build-arg PUID=1000 \
-  --build-arg PGID=1000 \
-  --build-arg USER=appuser \
-  -t snowdreamtech/base:debian-custom \
-  ./docker/debian/
-```
-
-Or at runtime (requires rebuilding the image):
+In this Deno image, the underlying base image automatically handles user creation. You only need to pass the parameters at runtime:
 
 ```bash
 docker run -d \
-  --name=base \
+  --name=deno \
   -e PUID=1000 \
   -e PGID=1000 \
   -e USER=appuser \
-  snowdreamtech/base:debian
+  snowdreamtech/deno:debian
 ```
 
-**Note**: User creation only occurs when `PUID≠0`, `PGID≠0`, and `USER≠root`.
+**Note**: The entrypoint scripts only modify permissions and create the user if `PUID≠0`, `PGID≠0`, and `USER≠root`.
 
 ## Docker Compose Examples
 
@@ -179,9 +168,9 @@ docker run -d \
 
 ```yaml
 services:
-  base:
-    image: snowdreamtech/base:debian
-    container_name: base
+  deno:
+    image: snowdreamtech/deno:debian
+    container_name: deno
     environment:
       - TZ=Asia/Shanghai
     restart: unless-stopped
@@ -191,9 +180,9 @@ services:
 
 ```yaml
 services:
-  base:
-    image: snowdreamtech/base:debian
-    container_name: base
+  deno:
+    image: snowdreamtech/deno:debian
+    container_name: deno
     environment:
       - TZ=Asia/Shanghai
       - DEBUG=true
@@ -203,51 +192,51 @@ services:
     restart: unless-stopped
 ```
 
-## Semantic Versioning Tags
+## Semantic Version Tags
 
 Images follow semantic versioning with the format: `{major}.{minor}.{patch}-{variant}`
 
 Examples:
 
-- `snowdreamtech/base:13.5.0-debian`
-- `snowdreamtech/base:3.24.0-alpine`
-- `snowdreamtech/base:10.2.0-rocky`
+- `snowdreamtech/deno:2.8.3-debian`
+- `snowdreamtech/deno:2.7.4-alpine`
+- `snowdreamtech/deno:2.8.3-rocky`
 
-This format allows:
+This format allows for:
 
-- **Full version pinning**: `13.5.0-debian` (exact version)
-- **Variant latest tag**: `latest-debian` (tracks most recent release for Debian)
-- **Global latest tag**: `latest` (tracks most recent release, defaults to Debian)
+- **Exact version pinning**: `2.8.3-debian` (precise version)
+- **Variant latest tag**: `latest-debian` (tracks latest Debian version)
+- **Global latest tag**: `latest` (tracks latest version, defaults to Debian)
 
 ## Architecture Support
 
-Each distribution variant supports multiple CPU architectures for deployment across diverse hardware platforms:
+Each distribution variant supports multiple CPU architectures, deployable across diverse hardware platforms:
 
 | Variant | Architectures |
 |---------|---------------|
-| **Debian** | i386, amd64, arm32v5, arm32v7, arm64, mips64le, ppc64le, s390x |
+| **Debian** | i386, amd64, arm32v5, arm32v7, arm64, riscv64, ppc64le, s390x |
 | **Alpine** | i386, amd64, arm32v6, arm32v7, arm64, ppc64le, riscv64, s390x |
-| **Rocky** | i386, amd64, arm32v5, arm32v7, arm64, mips64le, ppc64le, s390x |
+| **Rocky** | amd64, arm64, ppc64le, s390x |
 
-Docker automatically selects the appropriate architecture for your platform when pulling images.
+Docker automatically selects the appropriate architecture for your platform when pulling the image.
 
 ## Entrypoint System
 
 The base template includes a flexible entrypoint system that executes custom initialization scripts before starting your application.
 
-### How It Works
+### How it Works
 
-1. The `docker-entrypoint.sh` script runs at container startup
+1. The `docker-entrypoint.sh` script runs on container startup
 2. It executes all executable scripts in `/usr/local/bin/entrypoint.d/` in lexical order
 3. Each script receives the container's command-line arguments
 4. If any script fails, the container stops (fail-fast behavior)
 
 ### Adding Custom Initialization
 
-Create custom initialization scripts in your derived Dockerfile:
+Create custom initialization scripts in your derived Dockerfiles:
 
 ```dockerfile
-FROM snowdreamtech/base:debian
+FROM snowdreamtech/deno:debian
 
 # Add your custom initialization script
 COPY my-init.sh /usr/local/bin/entrypoint.d/20-my-init.sh
@@ -255,7 +244,7 @@ RUN chmod +x /usr/local/bin/entrypoint.d/20-my-init.sh
 
 # Your application setup
 COPY app /app
-CMD ["/app/start.sh"]
+CMD ["deno", "run", "--allow-net", "/app/main.ts"]
 ```
 
 ### Debug Mode
@@ -263,49 +252,15 @@ CMD ["/app/start.sh"]
 Enable debug output to troubleshoot entrypoint execution:
 
 ```bash
-docker run -e DEBUG=true snowdreamtech/base:debian
+docker run -e DEBUG=true snowdreamtech/deno:debian
 ```
 
-Output example:
+Example output:
 
 ```
 → [ENTRYPOINT] Executing all scripts in /usr/local/bin/entrypoint.d
 → Running /usr/local/bin/entrypoint.d/10-base-init.sh
 → [ENTRYPOINT] Done.
-```
-
-## Development
-
-### Prerequisites
-
-- Docker (>= 20.10)
-- Docker Buildx plugin
-
-### Building Locally
-
-```bash
-# Build all variants
-make build
-
-# Build specific variant
-docker build -t base:debian ./docker/debian/
-docker build -t base:alpine ./docker/alpine/
-docker build -t base:rocky ./docker/rocky/
-```
-
-### Testing
-
-```bash
-# Test default configuration
-docker run --rm base:debian id
-
-# Test custom user creation
-docker build --build-arg PUID=1000 --build-arg PGID=1000 --build-arg USER=testuser -t base:debian-test ./docker/debian/
-docker run --rm base:debian-test id
-# Expected: uid=1000(testuser) gid=1000(testuser)
-
-# Test DEBUG mode
-docker run --rm -e DEBUG=true base:debian
 ```
 
 ## Reference
@@ -317,12 +272,12 @@ docker run --rm -e DEBUG=true base:debian
 5. [Faster Multi-Platform Builds: Dockerfile Cross-Compilation Guide](https://www.docker.com/blog/faster-multi-platform-builds-dockerfile-cross-compilation-guide/)
 6. [docker/buildx](https://github.com/docker/buildx)
 
-## Contact (备注：base)
+## Contact (Note: deno)
 
-* Email: <sn0wdr1am@qq.com>
+* Email: sn0wdr1am@qq.com
 * QQ: 3217680847
-* QQ群: 949022145
-* WeChat/微信群: sn0wdr1am
+* QQ Group: 949022145
+* WeChat/WeChat Group: sn0wdr1am
 
 ## License
 
