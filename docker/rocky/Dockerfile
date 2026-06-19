@@ -16,11 +16,8 @@ ARG BUILDTIME \
     PGID=0 \
     PUID=0 \
     USER=root \
-    WORKDIR=/root
-
-# x-release-please-start-version
-ARG DENO_VERSION=2.8.3
-# x-release-please-end
+    WORKDIR=/root \
+    DENO_VERSION=2.8.3
 
 # Standard OCI Metadata (https://github.com/opencontainers/image-spec)
 LABEL org.opencontainers.image.authors="Snowdream Tech" \
