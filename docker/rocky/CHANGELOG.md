@@ -3,6 +3,13 @@
 ## [2.8.3](https://github.com/snowdreamtech/deno/compare/rocky-v2.8.3...rocky-v2.8.3) (2026-06-19)
 
 
+### 🐛 Bug Fixes
+
+* **rocky:** disable broken devel repo during dnf commands to fix build error ([3e6ecdf](https://github.com/snowdreamtech/deno/commit/3e6ecdf35d1f78f528156ee345c27a7d20c727d1))
+
+## [2.8.3](https://github.com/snowdreamtech/deno/compare/rocky-v2.8.3...rocky-v2.8.3) (2026-06-19)
+
+
 ### 🛠 Refactoring
 
 * **docker:** align Dockerfiles with base image structure ([232574f](https://github.com/snowdreamtech/deno/commit/232574fed8418f8c7f257d001e951361dfa467a0))
@@ -40,5 +47,3 @@
 * **release:** deduplicate CHANGELOG headers ([1d82410](https://github.com/snowdreamtech/deno/commit/1d82410d6038be22d7741f1519826f30023b0f3e))
 * **release:** deduplicate CHANGELOG headers ([5e1a539](https://github.com/snowdreamtech/deno/commit/5e1a5390319933b48d20ad993714587d826c0aa7))
 * **release:** implement automatic changelog deduplication step ([282c220](https://github.com/snowdreamtech/deno/commit/282c22081e1ad7a1a010a7f297d20bc7c9b416a7))
-
-
