@@ -76,7 +76,7 @@ jobs:
           - variant: alpine
             version: "3.24.0"
             context: docker/alpine
-            platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/riscv64,linux/s390x
+            platforms: linux/amd64,linux/arm64
             is_latest: false
             package_manager: apk
 
@@ -400,7 +400,10 @@ jobs:
 
             # Set expected count based on variant
             case "${{ matrix.variant }}" in
-              alpine|debian)
+              alpine)
+                expected_count=2
+                ;;
+              debian)
                 expected_count=8
                 ;;
               rocky)
@@ -741,7 +744,10 @@ jobs:
               echo "- **OS Version:** ${{ matrix.version }}"
               # Set platform count based on variant
               case "${{ matrix.variant }}" in
-                alpine|debian)
+                alpine)
+                  echo "- **Platforms:** 2 architectures"
+                  ;;
+                debian)
                   echo "- **Platforms:** 8 architectures"
                   ;;
                 rocky)
