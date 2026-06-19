@@ -1,5 +1,5 @@
-# Base Image (Rocky Variant)
-# Extends snowdreamtech/rocky with additional tooling and configuration.
+# Deno Image (Rocky Variant)
+# Extends snowdreamtech/rocky with deno installed.
 
 FROM snowdreamtech/rocky:10.2.0
 
@@ -16,21 +16,22 @@ ARG BUILDTIME \
     PGID=0 \
     PUID=0 \
     USER=root \
-    WORKDIR=/root
+    WORKDIR=/root \
+    DENO_VERSION=2.8.3
 
 # Standard OCI Metadata (https://github.com/opencontainers/image-spec)
 LABEL org.opencontainers.image.authors="Snowdream Tech" \
-    org.opencontainers.image.title="Base Image Based On Rocky" \
-    org.opencontainers.image.description="Docker Images for Base on Rocky. (i386, amd64, arm32v5, arm32v7, arm64, mips64le, ppc64le, s390x)" \
-    org.opencontainers.image.documentation="https://hub.docker.com/r/snowdreamtech/base" \
-    org.opencontainers.image.base.name="snowdreamtech/base:rocky" \
+    org.opencontainers.image.title="Deno Image Based On Rocky" \
+    org.opencontainers.image.description="Docker Images for Deno on Rocky. (amd64,arm64,ppc64le,s390x)" \
+    org.opencontainers.image.documentation="https://hub.docker.com/r/snowdreamtech/deno" \
+    org.opencontainers.image.base.name="snowdreamtech/rocky:10.2.0" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.source="https://github.com/snowdreamtech/base" \
+    org.opencontainers.image.source="https://github.com/snowdreamtech/deno" \
     org.opencontainers.image.vendor="Snowdream Tech" \
-    org.opencontainers.image.version="${VERSION:-10.2.0}" \
+    org.opencontainers.image.version="${VERSION:-2.8.3}" \
     org.opencontainers.image.created="${BUILDTIME}" \
     org.opencontainers.image.revision="${REVISION}" \
-    org.opencontainers.image.url="https://github.com/snowdreamtech/base"
+    org.opencontainers.image.url="https://github.com/snowdreamtech/deno"
 
 # Runtime Environment Configuration
 ENV KEEPALIVE=${KEEPALIVE} \
@@ -42,16 +43,18 @@ ENV KEEPALIVE=${KEEPALIVE} \
     PGID=${PGID} \
     PUID=${PUID} \
     USER=${USER} \
-    WORKDIR=${WORKDIR}
+    WORKDIR=${WORKDIR} \
+    DENO_VERSION=${DENO_VERSION}
 
-# Additional tooling and configuration for Base image
+
+# Additional tooling and configuration for Deno image
 RUN set -eux \
-    && dnf -y --allowerasing update \
-    && dnf -y --allowerasing install \
-    vim-enhanced \
-    && dnf -y --allowerasing autoremove \
-    && dnf -y --allowerasing clean all \
-    && rm -rf /var/cache/dnf \
+    && dnf -y update  \
+    && dnf -y install unzip curl \
+    && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- --yes v${DENO_VERSION} \
+    && dnf -y autoremove \
+    && dnf clean all \
+    && rm -rf /var/cache/dnf/* \
     && rm -rf /tmp/* \
     && rm -rf /var/tmp/*
 
