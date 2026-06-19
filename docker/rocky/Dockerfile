@@ -52,11 +52,11 @@ ENV KEEPALIVE=${KEEPALIVE} \
 
 # Additional tooling and configuration for Deno image
 RUN set -eux \
-    && dnf -y update  \
-    && dnf -y install unzip curl \
+    && dnf --disablerepo=devel -y update  \
+    && dnf --disablerepo=devel -y install unzip curl \
     && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- --yes v${DENO_VERSION} \
-    && dnf -y autoremove \
-    && dnf clean all \
+    && dnf --disablerepo=devel -y autoremove \
+    && dnf --disablerepo=devel clean all \
     && rm -rf /var/cache/dnf/* \
     && rm -rf /tmp/* \
     && rm -rf /var/tmp/*
