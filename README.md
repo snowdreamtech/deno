@@ -274,7 +274,7 @@ Example output:
 
 ## Contact (Note: deno)
 
-* Email: sn0wdr1am@qq.com
+* Email: <sn0wdr1am@qq.com>
 * QQ: 3217680847
 * QQ Group: 949022145
 * WeChat/WeChat Group: sn0wdr1am

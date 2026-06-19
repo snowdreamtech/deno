@@ -52,7 +52,7 @@ ENV DEBIAN_FRONTEND=${DEBIAN_FRONTEND} \
 # Additional tooling and configuration for Deno image
 RUN set -eux \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy update  \
-    && DEBIAN_FRONTEND=noninteractive apt-get -qqy install --no-install-recommends \ 
+    && DEBIAN_FRONTEND=noninteractive apt-get -qqy install --no-install-recommends \
     unzip \
     && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- --yes v${DENO_VERSION} \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy --purge autoremove \

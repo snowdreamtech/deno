@@ -274,7 +274,7 @@ docker run -e DEBUG=true snowdreamtech/deno:debian
 
 ## 联系方式（备注：deno）
 
-* Email: <sn0wdr1am@qq.com>
+* Email: [sn0wdr1am@qq.com](mailto:sn0wdr1am@qq.com)
 * QQ: 3217680847
 * QQ群: 949022145
 * WeChat/微信群: sn0wdr1am
