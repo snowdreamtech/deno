@@ -42,7 +42,7 @@ docker run -d \
   snowdreamtech/deno:debian
 ```
 
-**Supported Architectures**: i386, amd64, arm32v5, arm32v7, arm64, riscv64, ppc64le, s390x
+**Supported Architectures**: amd64, arm32v7, arm64, riscv64, ppc64le, s390x
 
 **Base Image**: `snowdreamtech/debian:13.5.0`
 
@@ -58,7 +58,7 @@ docker run -d \
   snowdreamtech/deno:alpine
 ```
 
-**Supported Architectures**: i386, amd64, arm32v6, arm32v7, arm64, ppc64le, riscv64, s390x
+**Supported Architectures**: amd64, arm64
 
 **Base Image**: `snowdreamtech/alpine:3.24.0`
 
@@ -214,8 +214,8 @@ Each distribution variant supports multiple CPU architectures, deployable across
 
 | Variant | Architectures |
 |---------|---------------|
-| **Debian** | i386, amd64, arm32v5, arm32v7, arm64, riscv64, ppc64le, s390x |
-| **Alpine** | i386, amd64, arm32v6, arm32v7, arm64, ppc64le, riscv64, s390x |
+| **Debian** | amd64, arm32v7, arm64, riscv64, ppc64le, s390x |
+| **Alpine** | amd64, arm64 |
 | **Rocky** | amd64, arm64, ppc64le, s390x |
 
 Docker automatically selects the appropriate architecture for your platform when pulling the image.

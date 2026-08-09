@@ -42,7 +42,7 @@ docker run -d \
   snowdreamtech/deno:debian
 ```
 
-**支持的架构**：i386、amd64、arm32v5、arm32v7、arm64、riscv64、ppc64le、s390x
+**支持的架构**：amd64、arm32v7、arm64、riscv64、ppc64le、s390x
 
 **基础镜像**：`snowdreamtech/debian:13.5.0`
 
@@ -58,7 +58,7 @@ docker run -d \
   snowdreamtech/deno:alpine
 ```
 
-**支持的架构**：i386、amd64、arm32v6、arm32v7、arm64、ppc64le、riscv64、s390x
+**支持的架构**：amd64、arm64
 
 **基础镜像**：`snowdreamtech/alpine:3.24.0`
 
@@ -214,8 +214,8 @@ services:
 
 | 变体 | 架构 |
 |---------|---------------|
-| **Debian** | i386、amd64、arm32v5、arm32v7、arm64、riscv64、ppc64le、s390x |
-| **Alpine** | i386、amd64、arm32v6、arm32v7、arm64、ppc64le、riscv64、s390x |
+| **Debian** | amd64、arm32v7、arm64、riscv64、ppc64le、s390x |
+| **Alpine** | amd64、arm64 |
 | **Rocky** | amd64、arm64、ppc64le、s390x |
 
 Docker 在拉取镜像时会自动为您的平台选择适当的架构。
