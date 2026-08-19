@@ -31,9 +31,3 @@
 * **release:** deduplicate CHANGELOG headers ([ae9e056](https://github.com/snowdreamtech/deno/commit/ae9e056a86682c5a26b5c8fe8890db54009d1b18))
 * **speckit:** manual auto-commit trigger ([5f8a5a9](https://github.com/snowdreamtech/deno/commit/5f8a5a9cba5d6bd42a65eaabfecd6e18b01aeeb0))
 
-## [2.8.3](https://github.com/snowdreamtech/deno/compare/rocky-v2.8.3...rocky-v2.8.3) (2026-06-19)
-
-
-### 🐛 Bug Fixes
-
-* **rocky:** disable broken devel repo during dnf commands to fix build error ([3e6ecdf](https://github.com/snowdreamtech/deno/commit/3e6ecdf35d1f78f528156ee345c27a7d20c727d1))
