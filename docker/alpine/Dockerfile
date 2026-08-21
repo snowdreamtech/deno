@@ -1,7 +1,7 @@
 # Deno Image (Alpine Variant)
 # Extends snowdreamtech/alpine with deno installed.
 
-FROM snowdreamtech/alpine:3.24.0
+FROM ghcr.io/snowdreamtech/alpine:3.24.1
 
 # Build-time Configuration
 ARG BUILDTIME \
@@ -24,7 +24,7 @@ LABEL org.opencontainers.image.authors="Snowdream Tech" \
     org.opencontainers.image.title="Deno Image Based On Alpine" \
     org.opencontainers.image.description="Docker Images for Deno on Alpine. (amd64, arm64)" \
     org.opencontainers.image.documentation="https://hub.docker.com/r/snowdreamtech/deno" \
-    org.opencontainers.image.base.name="snowdreamtech/alpine:3.24.0" \
+    org.opencontainers.image.base.name="ghcr.io/snowdreamtech/alpine:3.24.1" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.source="https://github.com/snowdreamtech/deno" \
     org.opencontainers.image.vendor="Snowdream Tech" \
