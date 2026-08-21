@@ -3,8 +3,9 @@
 ## [2.8.3](https://github.com/snowdreamtech/deno/compare/rocky-v2.8.3...rocky-v2.8.3) (2026-08-19)
 
 
-### 🐛 Bug Fixes
+### ♻️ Miscellaneous Chores
 
+* **docker:** ignore unavailable repos for rocky build ([a6b6b6e](https://github.com/snowdreamtech/base/commit/a6b6b6e5b2288cfeb6b2777902b85e7e5f37f2c3))
 * remove static version defaults from OCI image labels to use variable injection exclusively ([da5645a](https://github.com/snowdreamtech/deno/commit/da5645ad4d48467290235abbbd9f31ba70bf690f))
 * **rocky:** disable broken devel repo during dnf commands to fix build error ([3e6ecdf](https://github.com/snowdreamtech/deno/commit/3e6ecdf35d1f78f528156ee345c27a7d20c727d1))
 * use ghcr.io for base images to avoid rate limits ([9f1d73a](https://github.com/snowdreamtech/deno/commit/9f1d73a75a61f2f368f5572c4bd28f4c92ef8fd5))
