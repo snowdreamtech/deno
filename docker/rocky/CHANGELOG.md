@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.3](https://github.com/snowdreamtech/deno/compare/rocky-v2.8.3...rocky-v2.8.3) (2026-08-21)
+
+
+### ♻️ Miscellaneous Chores
+
+* merge upstream/dev into dev ([b46c586](https://github.com/snowdreamtech/deno/commit/b46c586af0fa4d280c21c01b70407ccdc2700850))
+
 ## [2.8.3](https://github.com/snowdreamtech/deno/compare/rocky-v2.8.3...rocky-v2.8.3) (2026-08-19)
 
 
@@ -31,4 +38,3 @@
 * **release:** deduplicate CHANGELOG headers ([e795177](https://github.com/snowdreamtech/deno/commit/e79517795d98b9f8292ef956586a6dc03932d03c))
 * **release:** deduplicate CHANGELOG headers ([ae9e056](https://github.com/snowdreamtech/deno/commit/ae9e056a86682c5a26b5c8fe8890db54009d1b18))
 * **speckit:** manual auto-commit trigger ([5f8a5a9](https://github.com/snowdreamtech/deno/commit/5f8a5a9cba5d6bd42a65eaabfecd6e18b01aeeb0))
-

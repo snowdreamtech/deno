@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.4](https://github.com/snowdreamtech/deno/compare/alpine-v2.7.4...alpine-v2.7.4) (2026-08-21)
+
+
+### 🐛 Bug Fixes
+
+* **docker:** update base Alpine image to 3.24.1 ([86de05c](https://github.com/snowdreamtech/deno/commit/86de05cfb98beb1fb6da6419e5e04c868bfd7878))
+
 ## [2.7.4](https://github.com/snowdreamtech/deno/compare/alpine-v2.7.4...alpine-v2.7.4) (2026-08-19)
 
 
@@ -26,4 +33,3 @@
 * **release:** deduplicate CHANGELOG headers ([d47fb44](https://github.com/snowdreamtech/deno/commit/d47fb44cb105b368722d7d0e210a27b525f82d87))
 * **release:** deduplicate CHANGELOG headers ([e795177](https://github.com/snowdreamtech/deno/commit/e79517795d98b9f8292ef956586a6dc03932d03c))
 * update alpine base image to 3.24.1 ([3021ed3](https://github.com/snowdreamtech/deno/commit/3021ed3b4ffa5f8916f5fa46aa4325e8ebf84ba6))
-
