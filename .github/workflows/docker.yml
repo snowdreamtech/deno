@@ -463,7 +463,7 @@ jobs:
                 echo "  ✗ GHCR image pull failed after retries"
               fi
             fi
-          fi          fi
+          fi
 
           echo "✓ Registry verification completed"
 
