@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.3](https://github.com/snowdreamtech/deno/compare/debian-v2.8.3...debian-v2.8.3) (2026-08-31)
+
+
+### 🐛 Bug Fixes
+
+* **docker:** remove --yes flag from deno install.sh to prevent qemu sigill crash during build ([4f842b6](https://github.com/snowdreamtech/deno/commit/4f842b69277ad043ebbe0f3288ffb8d4b2117c9e))
+
 ## [2.8.3](https://github.com/snowdreamtech/deno/compare/debian-v2.8.3...debian-v2.8.3) (2026-08-19)
 
 
@@ -30,4 +37,3 @@
 * **speckit:** manual auto-commit trigger ([5f8a5a9](https://github.com/snowdreamtech/deno/commit/5f8a5a9cba5d6bd42a65eaabfecd6e18b01aeeb0))
 * sync debian build matrix and documentation with upstream ([0d6e613](https://github.com/snowdreamtech/deno/commit/0d6e6132c84a368f5b64b9144d9c7d3b7292d746))
 * update debian base image to 13.6.0 ([5f885d5](https://github.com/snowdreamtech/deno/commit/5f885d5a771f06d449533f2f3c619d27444822f5))
-
