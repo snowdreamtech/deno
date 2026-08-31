@@ -57,7 +57,7 @@ RUN set -eux \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy update  \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy install --no-install-recommends \
     unzip \
-    && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- --yes v${DENO_VERSION} \
+    && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- v${DENO_VERSION} \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy --purge autoremove \
     && DEBIAN_FRONTEND=noninteractive apt-get -qqy clean \
     && rm -rf /var/lib/apt/lists/* \

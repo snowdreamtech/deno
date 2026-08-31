@@ -54,7 +54,7 @@ ENV KEEPALIVE=${KEEPALIVE} \
 RUN set -eux \
     && dnf -y --allowerasing --setopt=*.skip_if_unavailable=true update \
     && dnf -y --allowerasing --setopt=*.skip_if_unavailable=true install unzip curl \
-    && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- --yes v${DENO_VERSION} \
+    && curl -fsSL https://deno.land/install.sh | DENO_INSTALL=/usr sh -s -- v${DENO_VERSION} \
     && dnf -y --allowerasing autoremove \
     && dnf -y --allowerasing clean all \
     && rm -rf /var/cache/dnf \
